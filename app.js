@@ -29,6 +29,8 @@ let tex_birdw_up = new Image();
 let tex_birdw_down = new Image();
 let tex_birdw_left = new Image();
 let tex_birdw_right = new Image();
+let tex_bird_landed = new Image();
+let tex_birdw_landed = new Image();
 let tex_worm = new Image();
 let tex_nest = new Image();
 let tex_chicks = new Image();
@@ -55,6 +57,12 @@ function update_bird_sprite() {
 			} else if (player.speed_x > 0) {
 				tex_bird = tex_bird_right;
 			}
+		}
+	} else {
+		if (player.has_worm) {
+			tex_bird = tex_birdw_landed;
+		} else {
+			tex_bird = tex_bird_landed;
 		}
 	}
 }
@@ -119,6 +127,8 @@ function init() {
 	tex_birdw_down.src = "img/birdw_down.png";
 	tex_birdw_left.src = "img/birdw_left.png";
 	tex_birdw_right.src = "img/birdw_right.png";	
+	tex_bird_landed.src = "img/bird_landed.png";	
+	tex_birdw_landed.src = "img/birdw_landed.png";	
 	tex_bird = tex_bird_up;
 	tex_worm.src = "img/worm.png";
 	tex_nest.src = "img/nest.png";
