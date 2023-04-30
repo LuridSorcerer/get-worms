@@ -35,6 +35,9 @@ let tex_worm = new Image();
 let tex_nest = new Image();
 let tex_chicks = new Image();
 
+// audio
+let music = new Audio("ogg/music.ogg");
+
 function update_bird_sprite() {
 	if (!player.landed) {
 		if (player.has_worm) {
@@ -133,6 +136,12 @@ function init() {
 	tex_worm.src = "img/worm.png";
 	tex_nest.src = "img/nest.png";
 	tex_chicks.src = "img/chicks.png";
+
+	// start music
+	music.addEventListener("canplaythrough", e => {
+		music.loop = true;
+		music.play();
+	});
 }
 
 function run() {

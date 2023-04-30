@@ -1,4 +1,3 @@
-Music
 Title
 Title screen
 End screen
