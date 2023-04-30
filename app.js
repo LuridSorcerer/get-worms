@@ -171,7 +171,7 @@ function update() {
 	update_bird_sprite();
 
 	// check if a worm should be generated
-	if (worms.length < 10 && frame % 300 == 0) {
+	if (worms.length < 5 && frame % 300 == 0) {
 		worms.push( {x:Math.random()*1280,y:Math.random()*720,w:32,h:64,eaten:false} );
 	}
 

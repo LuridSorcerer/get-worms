@@ -2,7 +2,6 @@ Title
 Title screen
 End screen
 Tree layout 
-Less worms (five) 
 60fps lock 
 Aspect ratio lock 
 Make it fun
