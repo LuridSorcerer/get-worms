@@ -1,6 +1,6 @@
-# Untitled Bird Game
+# Peckish Perch
 
-Get worms, give to tiny birbs. 
+Get worms, feed your tiny birbs. 
 
 ## Credits
 
