@@ -6,4 +6,6 @@ Get worms, feed your tiny birbs.
 
 Code: Lurid Sorcerer
 
+Music: Lurid Sorcerer
+
 Art: Courtney Harlin
