@@ -13,9 +13,11 @@ let player = { x:5000, y:0, w:128, h:128, speed_x:0, speed_y:0, landed:false, ha
 let ctrls = { up:false, down:false, left:false, right:false };
 let nest = {x:1280-512, y:720-128, w:512, h:128 };
 let trees = [
-	{x:32, y:32, w:128, h:256},
-	{x:32, y:320, w:128, h:256},
-	{x:320, y:320, w:128, h:256}
+    { "x": 250, "y": -32, "w": 128, "h": 256 },
+    { "x": 0, "y": 240, "w": 128, "h": 256 },
+    { "x": 200, "y": 500, "w": 128, "h": 256 },
+    { "x": 1000, "y": 0, "w": 128, "h": 256 },
+    { "x": 1182, "y": 276, "w": 128, "h": 256 }
 ];
 let worms = [];
 

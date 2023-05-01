@@ -1,4 +1,2 @@
 Finish end screen
-Tree layout 
-Aspect ratio lock 
 Make it fun?
