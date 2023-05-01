@@ -6,7 +6,6 @@ let ctx;
 let frame;
 let time;
 let state;
-let last_frame_time;
 
 // game data
 let player = { x:5000, y:0, w:128, h:128, speed_x:0, speed_y:0, landed:false, has_worm: false, score:0, speed:2 };
@@ -169,13 +168,9 @@ function init() {
 }
 
 function run() {
-	// limit to 60fps
-	if (Date.now() - last_frame_time >= 16) {
-		frame++;
-		update();
-		render();
-		last_frame_time = Date.now();
-	}
+	frame++;
+	update();
+	render();
 	window.requestAnimationFrame(run);
 }
 
@@ -301,46 +296,40 @@ function render() {
 	if (state == 0) {
 		ctx.drawImage(tex_title,0,0);
 	} else {
+		// draw trees
+		trees.forEach( (t,i) => {
+			if (i%2==1)
+				ctx.drawImage(tex_tree_green,t.x,t.y,t.w,t.h) 
+			else 
+				ctx.drawImage(tex_tree_pink,t.x,t.y,t.w,t.h) 
+		});
+			
+		// draw worms
+		worms.forEach( w => ctx.drawImage(tex_worm, w.x, w.y, w.w, w.h) );
 
-	// draw trees
-	trees.forEach( (t,i) => {
-		if (i%2==1)
-			ctx.drawImage(tex_tree_green,t.x,t.y,t.w,t.h) 
-		else 
-			ctx.drawImage(tex_tree_pink,t.x,t.y,t.w,t.h) 
-	});
-		
-	// draw worms
-	worms.forEach( w => ctx.drawImage(tex_worm, w.x, w.y, w.w, w.h) );
+		// draw player
+		ctx.drawImage(tex_bird, player.x, player.y, player.w, player.h);
 
-	// draw player
-	ctx.drawImage(tex_bird, player.x, player.y, player.w, player.h);
-
-	//draw nest
-	switch(player.score) {
-		case 0:
-			ctx.drawImage(tex_chicks, nest.x+250, nest.y-90);
-			break;
-		case 1:
-			ctx.drawImage(tex_chicks_1, nest.x+250, nest.y-90);
-			break;
-		case 2:
-			ctx.drawImage(tex_chicks_2, nest.x+250, nest.y-90);
-			break;
-		default:
-			ctx.drawImage(tex_chicks_3, nest.x+250, nest.y-90);
-			break;
-	}
-	ctx.drawImage(tex_nest, nest.x, nest.y, nest.w, nest.h);
-
-	// draw hud
-	//ctx.font = "32px Consolas";
-	//ctx.fillStyle = "white";
-	//ctx.fillText("SCORE:"+player.score /*+" FRAMES:"+Math.floor(((frame/30)%3))*/, 32, 700);
+		//draw nest
+		switch(player.score) {
+			case 0:
+				ctx.drawImage(tex_chicks, nest.x+250, nest.y-90);
+				break;
+			case 1:
+				ctx.drawImage(tex_chicks_1, nest.x+250, nest.y-90);
+				break;
+			case 2:
+				ctx.drawImage(tex_chicks_2, nest.x+250, nest.y-90);
+				break;
+			default:
+				ctx.drawImage(tex_chicks_3, nest.x+250, nest.y-90);
+				break;
+		}
+		ctx.drawImage(tex_nest, nest.x, nest.y, nest.w, nest.h);
 
 	}
 
-	// if game complete, draw player on the branch
+	// if game complete, draw player on the branch 
 	if (state == 2) {
 		ctx.drawImage(tex_bird_landed_end, nest.x, nest.y-125);
 	}
