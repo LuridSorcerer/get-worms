@@ -81,30 +81,38 @@ function read_controls(e) {
 	if (e.type == "keydown") {
 		switch(e.keyCode) {
 			case 87: 	// 87 = W
+			case 38: 	// 38 = up arrow
 				ctrls.up = true;
 				break;
 			case 83: 	// 83 = S
+			case 40:	// 40 = down arrow
 				ctrls.down = true;
 				break;
 			case 65: 	// 65 = A
+			case 37:	// 37 = left arrow
 				ctrls.left = true;
 				break;
 			case 68: 	// 68 = D
+			case 39: 	// 39 = right arrow
 				ctrls.right = true;
 				break;
 		}
 	} else if (e.type == "keyup") {
 		switch(e.keyCode) {
 			case 87:
+			case 38: 	// 38 = up arrow
 				ctrls.up = false;
 				break;
 			case 83:
+			case 40:	// 40 = down arrow				
 				ctrls.down = false;
 				break;
 			case 65: 
+			case 37:	// 37 = left arrow			
 				ctrls.left = false;
 				break;
 			case 68:
+			case 39: 	// 39 = right arrow				
 				ctrls.right = false;
 				break;
 		}
