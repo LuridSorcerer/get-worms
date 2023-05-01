@@ -43,6 +43,7 @@ let tex_chicks_1 = new Image();
 let tex_chicks_2 = new Image();
 let tex_chicks_3 = new Image();
 let tex_title = new Image();
+let tex_endscreen = new Image();
 
 // audio
 let music = new Audio("ogg/music.ogg");
@@ -162,6 +163,7 @@ function init() {
 	tex_chicks_2.src = "img/chicks_2.png";
 	tex_chicks_3.src = "img/chicks_3.png";
 	tex_title.src = "img/title.png";
+	tex_endscreen.src = "img/endscreen.png";
 
 	// start in title screen mode
 	state = 0;
@@ -329,8 +331,9 @@ function render() {
 
 	}
 
-	// if game complete, draw player on the branch 
+	// if game complete, draw player on the branch and end screen
 	if (state == 2) {
+		ctx.drawImage(tex_endscreen,128,0);
 		ctx.drawImage(tex_bird_landed_end, nest.x, nest.y-125);
 	}
 
