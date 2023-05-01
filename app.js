@@ -6,6 +6,7 @@ let ctx;
 let frame;
 let time;
 let state;
+let last_frame_time;
 
 // game data
 let player = { x:5000, y:0, w:128, h:128, speed_x:0, speed_y:0, landed:false, has_worm: false, score:0, speed:2 };
@@ -134,6 +135,9 @@ function init() {
 	// set frame counter
 	frame=0;
 
+	// start timing frames
+	last_frame_time = 0;
+
 	// load images
 	tex_grass.src = "img/grass.png";
 	tex_tree_green.src = "img/tree_green.png";
@@ -163,9 +167,13 @@ function init() {
 }
 
 function run() {
-	frame++;
-	update();
-	render();
+	// limit to 60fps
+	if (Date.now() - last_frame_time >= 16) {
+		frame++;
+		update();
+		render();
+		last_frame_time = Date.now();
+	}
 	window.requestAnimationFrame(run);
 }
 

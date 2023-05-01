@@ -1,5 +1,4 @@
 Finish end screen
 Tree layout 
-60fps lock 
 Aspect ratio lock 
 Make it fun?
